@@ -466,6 +466,16 @@ accuracy_data = {
         'mouth_gestures': {
             'open': 42,
             'close': 19
+        },
+        'head_gestures': {
+            'side': 25,
+            'side tilt': 2,
+            'TurnR': 16,
+            'forward': 6
+        },
+        'handtrajectory_gestures': {
+            'single': 11,
+            'both': 27
         }
     },
     'truthful': {
@@ -504,6 +514,16 @@ accuracy_data = {
         'mouth_gestures': {
             'open': 50,
             'close': 10
+        },
+        'head_gestures': {
+            'side': 19,
+            'side tilt': 8,
+            'TurnR': 14,
+            'forward': 5
+        },
+        'handtrajectory_gestures': {
+            'single': 15,
+            'both': 15
         }
     }
 }
@@ -513,6 +533,7 @@ def plot_gestures_accuracy(face_type, gestures_data, xlabel,figsize):
     fig, ax = plt.subplots(figsize=figsize)
     gestures = list(gestures_data.keys())
     values = [gestures_data[gesture] for gesture in gestures]
+   
     #colors = ['#8470FF', '#f47e7a', '#dbbaa7', '#98F5FF', '#32CD32', '#8B008B', '#D8BFD8', '#BC8F8F', '#f47e7a', '#6495ED', '#00EEEE', '#dbbaa7', '#778899', '#00FA9A', '#97FFFF', '#CAFF70', '#7FFF00', '#00FFFF', '#dbbaa7', '#FFB6C1', '#ADFF2F', '#F08080']
     colors = ['#8470FF', '#FFA500', '#1E90FF', '#FF1493', '#ADFF2F', '#F08080', '#32CD32']
     ax.barh(gestures, values, color=colors, height=0.7)
@@ -522,8 +543,8 @@ def plot_gestures_accuracy(face_type, gestures_data, xlabel,figsize):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 # Create a single dropdown widget for selecting the face type
@@ -539,7 +560,10 @@ def interactive_plotv1(face_type):
     lips_gestures = accuracy_data.get(face_type, {}).get('lips_gestures', {})
     hands_gestures = accuracy_data.get(face_type, {}).get('hands_gestures', {})
     mouth_gestures = accuracy_data.get(face_type, {}).get('mouth_gestures', {})
-    
+    head_gestures = accuracy_data.get(face_type, {}).get('head_gestures', {})
+    handtrajectory_gestures = accuracy_data.get(face_type, {}).get('handtrajectory_gestures', {})
+
+
     fig1 = plot_gestures_accuracy(face_type, face_emotions, 'General Face',(2.3, 1.4))
     fig2 = plot_gestures_accuracy(face_type, gaze_gestures, 'Gaze',(2.3, 1.6))
     fig3 = plot_gestures_accuracy(face_type, eyebrow_gestures, 'Eyes',(2.3, 1.4))
@@ -547,6 +571,9 @@ def interactive_plotv1(face_type):
     fig5 = plot_gestures_accuracy(face_type, lips_gestures, 'Lips',(2.3, 1.6))
     fig6 = plot_gestures_accuracy(face_type, hands_gestures, 'Hand Trajectory',(2.3, 1.5))
     fig7 = plot_gestures_accuracy(face_type, mouth_gestures, 'Mouth',(2.3, 1.4))
+    fig8 = plot_gestures_accuracy(face_type, head_gestures, 'Head',(2.3, 1.4))
+    fig9 = plot_gestures_accuracy(face_type, handtrajectory_gestures, 'Hands',(2.3, 1.3))
+
 
     return pn.Column(
         #'# Accuracy of Face Emotions',
@@ -562,7 +589,9 @@ def interactive_plotv1(face_type):
         #'# Accuracy of Hand Gestures',
         fig6,
         #'# Accuracy of Mouth Gestures',
-        fig7
+        fig7,
+        fig8,
+        fig9
     )
 
 # Create the dashboard layout
