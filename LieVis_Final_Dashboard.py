@@ -285,8 +285,8 @@ def plot_face_emotions_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 # Define a function to plot the eye gestures data
@@ -303,8 +303,8 @@ def plot_eye_gestures_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 def plot_eyebrow_gestures_accuracy(face_type):
@@ -320,8 +320,8 @@ def plot_eyebrow_gestures_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 def plot_gaze_gestures_accuracy(face_type):
@@ -337,8 +337,8 @@ def plot_gaze_gestures_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 def plot_lips_gestures_accuracy(face_type):
@@ -354,8 +354,8 @@ def plot_lips_gestures_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 def plot_hands_gestures_accuracy(face_type):
@@ -371,8 +371,8 @@ def plot_hands_gestures_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 def plot_mouth_gestures_accuracy(face_type):
@@ -388,8 +388,8 @@ def plot_mouth_gestures_accuracy(face_type):
     normalized_values = [value / max_value for value in values]
     for i, v in enumerate(values):
         ax.text(normalized_values[i] + 0.01, i, str(v), color='black', va='center')
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
     return fig
 
 # Create a single dropdown widget for selecting the face type
@@ -714,9 +714,10 @@ template = pn.template.FastListTemplate(
     
     
    sidebar=[
-             pn.pane.Markdown("## LieVis Details"), 
-             pn.pane.Markdown("#### With the prevalence of lying increasing across various fields including law enforcement, education, healthcare, government agencies, border crossings, military screenings, regular job screenings, telecommunications, as well as informants stationed at embassies and consulates worldwide, the development of a comprehensive lie detection model becomes crucial. To address this need, we have introduced an interactive visualization dashboard named 'LieVis'. This specially designed dashboard allows users to thoroughly explore and analyze the results obtained from machine learning (ML) and deep learning (DL) techniques. By providing the capability to delve deeply into ML and DL results, LieVis empowers users to gain comprehensive insights and understanding of the data.")
-      # LieVis Details: Identifying and explaining suicidal thoughts can be challenging as it relies on various factors, including interpreting ambiguous language related to suicide, distinguishing it from non-suicidal language, and evaluating the severity of the ideation before determining if the text is non-suicidal.")      pn.pane.Markdown("#### With the prevalence of lying increasing across various fields including law enforcement, education, healthcare, government agencies, border crossings, military screenings, regular job screenings, telecommunications, as well as informants stationed at embassies and consulates worldwide, the development of a comprehensive lie detection model becomes crucial. To address this need, we have introduced an interactive visualization dashboard named "LieVis." This specially designed dashboard allows users to thoroughly explore and analyze the results obtained from ML and DL techniques. By providing the capability to delve deeply into ML and DL results, LieVis empowers users to gain comprehensive insights and understanding of the data.") 
+        dashboard
+            #  pn.pane.Markdown("## LieVis Details"), 
+            #  pn.pane.Markdown("#### With the prevalence of lying increasing across various fields including law enforcement, education, healthcare, government agencies, border crossings, military screenings, regular job screenings, telecommunications, as well as informants stationed at embassies and consulates worldwide, the development of a comprehensive lie detection model becomes crucial. To address this need, we have introduced an interactive visualization dashboard named 'LieVis'. This specially designed dashboard allows users to thoroughly explore and analyze the results obtained from machine learning (ML) and deep learning (DL) techniques. By providing the capability to delve deeply into ML and DL results, LieVis empowers users to gain comprehensive insights and understanding of the data.")
+    #   LieVis Details: Identifying and explaining suicidal thoughts can be challenging as it relies on various factors, including interpreting ambiguous language related to suicide, distinguishing it from non-suicidal language, and evaluating the severity of the ideation before determining if the text is non-suicidal.")      pn.pane.Markdown("#### With the prevalence of lying increasing across various fields including law enforcement, education, healthcare, government agencies, border crossings, military screenings, regular job screenings, telecommunications, as well as informants stationed at embassies and consulates worldwide, the development of a comprehensive lie detection model becomes crucial. To address this need, we have introduced an interactive visualization dashboard named "LieVis." This specially designed dashboard allows users to thoroughly explore and analyze the results obtained from ML and DL techniques. By providing the capability to delve deeply into ML and DL results, LieVis empowers users to gain comprehensive insights and understanding of the data.") 
             # pn.pane.PNG('climate_day.png', sizing_mode='scale_both'),
              ],
 
